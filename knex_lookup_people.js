@@ -17,10 +17,9 @@ function getReults(name) {
   .where('first_name', name)
   .orWhere('last_name', name)
   .asCallback(function(err, rows) {
-        if (err) {
-          return console.error(err);
-        } printReults(rows);
-          knex.destroy();
+        if (err) return console.error(err);
+        printReults(rows);
+        knex.destroy();
       });
   }
 
